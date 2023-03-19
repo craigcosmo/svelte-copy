@@ -44,7 +44,7 @@ export const copy = (element: HTMLElement, params: Parameters | string) => {
             }
     }
 
-    let events = typeof params == 'string' ? ['click'] : [params.events].flat(1);
+    let events = typeof params == 'string' ? ['dbclick'] : [params.events].flat(1);
     let text = typeof params == 'string' ? params : params.text;
 
     events.forEach((event) => {
@@ -53,7 +53,8 @@ export const copy = (element: HTMLElement, params: Parameters | string) => {
 
     return {
         update: (newParams: Parameters | string) => {
-            const newEvents = typeof newParams == 'string' ? ['click'] : [newParams.events].flat(1);
+            const newEvents =
+                typeof newParams == 'string' ? ['dbclick'] : [newParams.events].flat(1);
             const newText = typeof newParams == 'string' ? newParams : newParams.text;
 
             const addedEvents = newEvents.filter((x) => !events.includes(x));
